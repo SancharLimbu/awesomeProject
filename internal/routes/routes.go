@@ -7,9 +7,9 @@ import (
 )
 
 func Initialize(router *gin.Engine, db *gorm.DB) {
-	handler := handlers.UserHandler{DB: db}
-	router.GET("/users", handler.GetUsers)
-	router.GET("/users/:id", handler.GetUserByID)
-	router.POST("/users", handler.PostUsers)
-	router.PUT("/users/:id", handler.UpdateUser)
+	userhandler := handlers.UserHandler{DB: db}
+	router.GET("/users", userhandler.GetUsers)
+	router.GET("/users/:id", userhandler.GetUserByID)
+	router.POST("/users", userhandler.PostUsers)
+	router.PUT("/users/:id", userhandler.UpdateUser)
 }
