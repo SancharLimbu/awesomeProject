@@ -1,4 +1,4 @@
-# GO Exploration for Gin and other tools for backend development
+# Go exploration for Gin and other tools for backend development
 
 ## Swagger URL
 
