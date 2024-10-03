@@ -1,15 +1,25 @@
 package routes
 
 import (
-	"awesomeProject/internal/api/handlers"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
-func Initialize(router *gin.Engine, db *gorm.DB) {
-	userhandler := handlers.UserHandler{DB: db}
-	router.GET("/users", userhandler.GetUsers)
-	router.GET("/users/:id", userhandler.GetUserByID)
-	router.POST("/users", userhandler.PostUsers)
-	router.PUT("/users/:id", userhandler.UpdateUser)
+type Routes struct {
+	router *gin.Engine
+	db     *gorm.DB
+}
+
+func NewRoutes(router *gin.Engine, db *gorm.DB) *Routes {
+	return &Routes{
+		router: router,
+		db:     db,
+	}
+}
+
+func (r *Routes) Setup() {
+	v1 := r.router.Group("/api/v1")
+	{
+		r.setupUserRoutes(v1)
+	}
 }
