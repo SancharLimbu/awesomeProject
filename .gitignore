@@ -9,7 +9,6 @@
 
 # Output from `go build`
 /bin/
-/pkg/
 
 # Vendor directory (if using vendoring)
 vendor/
