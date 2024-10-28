@@ -14,7 +14,7 @@ import (
 
 // @title Awesome Project API
 // @version 1.0
-// @description This is a sample server for Awesome Project.
+// @description This is a sample server for Awesome Project for exploring Golang.
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
