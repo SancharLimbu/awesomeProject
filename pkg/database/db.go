@@ -12,11 +12,11 @@ import (
 )
 
 type Config struct {
-	Username string
-	Password string
-	Host     string
-	Port     string
-	DBName   string
+	DBUsername string
+	DBPassword string
+	DBHost     string
+	DBPort     string
+	DBName     string
 }
 
 func NewConfig() Config {
@@ -25,20 +25,20 @@ func NewConfig() Config {
 	}
 
 	return Config{
-		Username: os.Getenv("DB_USERNAME"),
-		Password: os.Getenv("DB_PASSWORD"),
-		Host:     os.Getenv("DB_HOST"),
-		Port:     os.Getenv("DB_PORT"),
-		DBName:   os.Getenv("DB_NAME"),
+		DBUsername: os.Getenv("DB_USERNAME"),
+		DBPassword: os.Getenv("DB_PASSWORD"),
+		DBHost:     os.Getenv("DB_HOST"),
+		DBPort:     os.Getenv("DB_PORT"),
+		DBName:     os.Getenv("DB_NAME"),
 	}
 }
 
 func Connect(config Config) (*gorm.DB, error) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		config.Username,
-		config.Password,
-		config.Host,
-		config.Port,
+		config.DBUsername,
+		config.DBPassword,
+		config.DBHost,
+		config.DBPort,
 		config.DBName,
 	)
 
